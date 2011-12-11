@@ -26,7 +26,7 @@ namespace :db do
       50.times do
         user.microposts.create!(:content => Faker::Lorem.sentence(5))
       end
-    ends
+    end
   
   end
 end    
