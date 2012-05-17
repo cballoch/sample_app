@@ -28,15 +28,39 @@ class User < ActiveRecord::Base
   
   before_save :encrypt_password
   
-  def feed
-    # This is preliminary. See Chapter 12 for the full implementation.
-    Micropost.from_users_followed_by(self)
-  end
+
   
   # Return true if the user's password matches the submitted password
   
   def has_password?(submitted_password) 
     encrypted_password == encrypt(submitted_password)
+  end
+
+  def feed
+
+    Micropost.from_users_followed_by(self)
+  end  
+  
+  def self.authenticate(email, submitted_password) 
+    user = find_by_email(email) 
+    user && user.has_password?(submitted_password) ? user : nil
+  end
+  
+  def self.authenticate_with_salt(id,cookie_salt)
+     user=find_by_id(id)
+     (user && user.salt == cookie_salt) ? user : nil
+  end
+  
+  def following?(followed)
+    relationships.find_by_followed_id(followed)
+  end
+  
+  def follow!(followed)
+    relationships.create!(:followed_id => followed.id)
+  end
+    
+  def unfollow!(followed)
+    relationships.find_by_followed_id(followed).destroy
   end
   
 #  def self.authenticate(email, submitted_password) 
@@ -77,29 +101,6 @@ class User < ActiveRecord::Base
 #      user
 #    end 
 #  end
-  
-  def self.authenticate(email, submitted_password) 
-    user = find_by_email(email) 
-    user && user.has_password?(submitted_password) ? user : nil
-  end
-  
-  def self.authenticate_with_salt(id,cookie_salt)
-     user=find_by_id(id)
-     (user && user.salt == cookie_salt) ? user : nil
-  end
-  
-  def following?(followed)
-    relationships.find_by_followed_id(followed)
-  end
-  
-  def follow!(followed)
-    relationships.create!(:followed_id => followed.id)
-  end
-    
-  def unfollow!(followed)
-    relationships.find_by_followed_id(followed).destroy
-  end
-  
   
   private
   
