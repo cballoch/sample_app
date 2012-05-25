@@ -140,6 +140,18 @@ span {
 	font-weight:900;
 	margin-top:-8px;
 }
+.mini_character a, .mini_character a:hover, .mini_character a:visited {
+	color:inherit;
+	text-decoration:none;
+}
+span {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:2;
+}
 .red {
 	color:#651d15;
 	background: -webkit-gradient(linear, left top, left bottom, from(#F6402D), to(#9e2d21));
