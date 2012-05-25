@@ -134,6 +134,7 @@ span {
 	background:red;
 	display:inline-block;
 	text-align:center; 
+	position:relative;
 }
 .mini_character {
 	font-size:40px;
