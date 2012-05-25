@@ -11,20 +11,20 @@ section h1 {
 	color:#989696;
 	text-transform:uppercase;
 }
-section h1 li { list-style-type: none; display: inline-block; padding: 0.2em 0; }
-section h1 li a { padding: 0 5pm;}
+section h1 li { color: #989696; list-style-type: none; display: inline-block; padding: 0.2em 0; }
+section h1 li a { color: #989696; padding: 0 5pm;}
 section h1 li a:visited { color: #989696; }
-section h1 li a: hover { text-decoration: underline; }
+section h1 li a: hover { color: #989696; text-decoration: underline; }
 
 section h5 { 
 	font-size: 100%; 
 	color:#989696;
 	text-transform:none;
 }
-section h5 li { list-style-type: none; display: inline-block; padding: 0.2em 0; }
-section h5 li a { padding: 0 5pm;}
+section h5 li { color: #989696; list-style-type: none; display: inline-block; padding: 0.2em 0; }
+section h5 li a { color: #989696; padding: 0 5pm;}
 section h5 li a:visited { color: #989696; }
-section h5 li a: hover { text-decoration: underline; }
+section h5 li a:hover { color: #989696; text-decoration: underline; }
 
 .sign_up {
 	display:block;
@@ -80,10 +80,7 @@ section h5 li a: hover { text-decoration: underline; }
 	font-weight:900;
 	margin-top:-21px;
 }
-.character li { list-style-type: none; }
-.character li a { padding: 0 5pm;}
-.character li a:visited { color: #5d3114; }
-.character li a: hover { text-decoration: none; }
+
 .red {
 	color:#651d15;
 	background: -webkit-gradient(linear, left top, left bottom, from(#F6402D), to(#9e2d21));
