@@ -7,24 +7,12 @@
 		<%= javascript_include_tag :defaults %>
 	</head>
 	<body>
-		
-		<section>
-			<div class="box red"><div class="character">
-				热
-			</div></div>
-			<div class="box orange"><div class="character">潮</div></div>
-			<div class="box yellow"><div class="character">时</div></div>
-			<div class="box blue"><div class="character">尚</div></div>
-			
-			<h1>本网站正在建设中 The site is under construction</h1>
-			Sign up here to receive updates:
-			
-			<div class="sign_up">
-				<%= render 'init_users/signup_form' %>
-			</div>
-			<div class="messages">
-				<%= render 'shared/messages' %>
-			</div>
-		</section>
+
+			<% flash.each do |key, value| %> 
+				<%= content_tag(:div, value, :class => "flash #{key}") %>
+
+			<% end %>
+			<%= yield %>
+
 	</body>
 </html>

@@ -5,7 +5,14 @@ SampleApp::Application.routes.draw do
       get :following, :followers
     end
   end
-  resources :init_users 
+  resources :init_users
+  resources :jobs do
+    collection do 
+      get :tech_lead_eng, :tech_lead_chn
+      get :design_lead_eng, :design_lead_chn
+      get :fashion_lead_eng, :fashion_lead_chn
+    end
+  end 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
@@ -17,8 +24,9 @@ SampleApp::Application.routes.draw do
   match '/contact', :to =>  'pages#contact'
   match '/about',   :to =>  'pages#about'
   match '/help',    :to =>  'pages#help'
+  match '/home',    :to => 'pages#home'
 
-  root :to => 'pages#home'
+  root :to => 'pages#landing'
   
 #  get "pages/contact"
   

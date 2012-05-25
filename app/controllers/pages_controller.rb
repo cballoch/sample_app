@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-
+  def landing
+    @init_user = InitUser.new
+  end
+  
   def home
     @title = "Home"
     @init_user = InitUser.new
