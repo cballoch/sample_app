@@ -9,22 +9,12 @@
 	<body>
 		
 		<section>
-			<div class="box red"><%= link_to content_tag(:span), root_path %><div class="character">
-				<%= link_to "热", root_path %>
-			</div></div>
-			<div class="box orange"><%= link_to content_tag(:span), root_path %><div class="character"><%= link_to "潮", root_path%></div></div>
-			<div class="box yellow"><%= link_to content_tag(:span), root_path %><div class="character"><%= link_to "时", root_path%></div></div>
-			<div class="box blue"><%= link_to content_tag(:span), root_path %><div class="character"><%= link_to "尚", root_path%></div></div>
-			
-			<h1>本网站正在建设中 The site is under construction</h1>
-			Sign up here to receive updates:
-			
-			<div class="sign_up">
-				<%= render 'init_users/signup_form' %>
-			</div>
-			<div class="messages">
-				<%= render 'shared/messages' %>
-			</div>
+			<% flash.each do |key, value| %> 
+				<%= content_tag(:div, value, :class => "flash #{key}") %>
+
+			<% end %>
+			<%= yield %>
 		</section>
+
 	</body>
 </html>
