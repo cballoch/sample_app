@@ -25,6 +25,7 @@ SampleApp::Application.routes.draw do
   match '/about',   :to =>  'pages#about'
   match '/help',    :to =>  'pages#help'
   match '/home',    :to => 'pages#home'
+  match '/video',    :to => 'pages#video'
 
   root :to => 'pages#landing'
   
