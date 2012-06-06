@@ -2,19 +2,16 @@
 		<%= render 'layouts/rechao_boxes' %>
 		
 		<h1>本网站正在建设中 The site is under construction</h1>
-		Checkout the introductory video here
-			<%= link_to "Introductory Video", video_path %>
-		
+		To checkout the introductory video, input the password here
+			<%= render 'sessions/video_sign_in' %>
+			</br>
 		Sign up here to receive updates:
 		
 		<div class="sign_up">
 			<%= render 'init_users/signup_form' %>
 		</div>
+		</br>
 		
 		<h1><li><%= link_to "我们正在招聘! We're hiring!", jobs_path%></li></h1>
 
-
-		<div class="messages">
-			<%= render 'shared/messages' %>
-		</div>
 </section>

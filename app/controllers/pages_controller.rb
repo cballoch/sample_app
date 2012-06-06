@@ -1,6 +1,13 @@
 class PagesController < ApplicationController
+  
+  before_filter :authenticate, :except => [:landing]
+    
   def landing
     @init_user = InitUser.new
+  end
+  
+  def video
+    
   end
   
   def home
